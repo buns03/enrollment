@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Form</title>
+  <link rel="stylesheet" href="/css/educational.css">
+</head>
+<body>
+<div class="header">
+  <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+  <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="form-container">
+  <div class="form-header">EDUCATIONAL INFORMATION</div>
+  <div class="main-container">
+    <div class="progress-container">
+      <span class="progress-step"></span>
+      <span class="progress-step"></span>
+      <span class="progress-step active"></span>
+      <span class="progress-step"></span>
+    </div>
+
+    <p class="instructions">Please fill out the necessary forms to complete your registration.</p>
+
+    <!-- Begin form with Thymeleaf -->
+    <form th:action="@{/students/schedule}" th:object="${enrollmentForm}" method="POST">
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{SchoolName}" placeholder="LAST SCHOOL ATTENDED" id="SchoolName" required>
+          <label>LAST SCHOOL ATTENDED</label>
+        </div><div>
+          <input type="text" th:field="*{SchoolAddress}" placeholder="School Address" id="SchoolAddress" required>
+          <label>School Address</label>
+        </div>
+        <div >
+          <select th:field="*{Strand}" class="Strand" required>
+            <option value="" disabled selected>Select Strand/Track</option>
+            <option value="STEM">SCIENCE, TECHNOLOGY, ENGINEERING, AND MATHEMATICS (STEM)</option>
+            <option value="ABM">ACCOUNTANCY, BUSINESS, AND MANAGEMENT (ABM)</option>
+            <option value="HUMSS">HUMANITIES AND SOCIAL SCIENCES (HUMSS)</option>
+            <option value="GAS">GENERAL ACADEMIC STRAND (GAS)</option>
+            <option value="HE">HOME ECONOMICS (HE)</option>
+            <option value="ICT">INFORMATION AND COMMUNICATIONS TECHNOLOGY (ICT)</option>
+            <option value="IA">INDUSTRIAL ARTS (IA)</option>
+            <option value="AFA">AGRI-FISHERY ARTS (AFA)</option>
+            <option value="SPORTS">SPORTS TRACK (SPORTS)</option>
+            <option value="ARTS">ARTS AND DESIGN TRACK (ARTS)</option>
+          </select>
+          <label for="STRAND/TRACK">STRAND/TRACK </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <input type="number" th:field="*{Average}" placeholder="AVERAGE" required>
+          <label>AVERAGE</label>
+        </div>
+        <div>
+          <input type="date" th:field="*{DateGraduate}" placeholder="DATE OF GRADUATION" required>
+          <label>DATE OF GRADUATION</label>
+        </div><div>
+          <input type="text" th:field="*{Achievements}" placeholder="ACHIEVEMENTS" required>
+          <label>ACHIEVEMENTS</label>
+        </div>
+      </div>
+      <div class="button-group">
+        <a href="javascript:history.back()" class="backBtn">BACK</a>
+        <button id="nextBtn">NEXT</button>
+      </div>
+  </form>
+</div>
+</div>
+</body>
+</html>

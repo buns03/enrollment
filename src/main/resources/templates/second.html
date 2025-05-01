@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Form</title>
+  <link rel="stylesheet" href="/css/educational.css">
+</head>
+<body>
+<div class="header">
+  <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+  <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="form-container">
+  <div class="form-header">PARENT/GUARDIAN INFORMATION</div>
+  <div class="main-container">
+    <div class="progress-container">
+      <span class="progress-step "></span>
+      <span class="progress-step active"></span>
+      <span class="progress-step"></span>
+      <span class="progress-step"></span>
+    </div>
+
+    <p class="instructions">Please fill out the necessary forms to complete your registration.</p>
+
+    <!-- Begin form with Thymeleaf -->
+    <form th:action="@{/students/education}" th:object="${enrollmentForm}" method="POST">
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{mother}" placeholder="LAST NAME, GIVEN NAME, MIDDLE NAME, SUFFIX" required>
+          <label>Mother's Maiden Name</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{monum}" placeholder="Mother's Number" required>
+          <label>Mother's Number</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{mooccu}" placeholder="Mother's Occupation" required>
+          <label>Mother's Occupation</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{moaddress}" placeholder="Mother's Address" required>
+          <label>Mother's Address</label>
+        </div>
+        <div>
+          <input type="email" th:field="*{moemail}" placeholder="Mother's Email" required>
+          <label>Mother's Email</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{father}" placeholder="LAST NAME, GIVEN NAME, MIDDLE NAME, SUFFIX" required>
+          <label>Father's Name</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{fnum}" placeholder="Father's Number" required>
+          <label>Father's Number</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{foccu}" placeholder="Father's Occupation" required>
+          <label>Father's Occupation</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{faddress}" placeholder="Father's Address" required>
+          <label>Father's Address</label>
+        </div>
+        <div>
+          <input type="email" th:field="*{femail}" placeholder="Father's Email" required>
+          <label>Father's Email</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+         <div>
+            <input type="text" th:field="*{guardian}" placeholder="LAST NAME, GIVEN NAME, MIDDLE NAME, SUFFIX" required>
+            <label>Guardian's Name</label>
+          </div>
+          <div>
+            <input type="text" th:field="*{gnum}" placeholder="Guardian's Number" required>
+            <label>Guardian's Number</label>
+          </div>
+          <div>
+            <input type="text" th:field="*{gaddress}" placeholder="Guardian's Address" required>
+            <label>Guardian's Address</label>
+          </div>
+      </div>
+        <div class="form-group">
+          <div>
+            <input type="email" th:field="*{gemail}" placeholder="Guardian's Email" required>
+            <label>Guardian's Email</label>
+          </div>
+        </div>
+      <div class="button-group">
+        <a href="javascript:history.back()" class="backBtn">BACK</a>
+        <button type="submit" id="nextBtn">NEXT</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

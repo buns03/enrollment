@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="/css/seniorSched.css">
+</head>
+
+<body>
+<div class="header">
+    <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+    <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="form-container">
+    <div class="form-header">PAYMENT</div>
+    <div class="main-container">
+        <div class="progress-container">
+            <span class="progress-step"></span>
+            <span class="progress-step"></span>
+            <span class="progress-step"></span>
+            <span class="progress-step active"></span>
+        </div>
+        <div class="instructions">
+            Please fill out the necessary forms to complete your registration.
+        </div>
+
+        <form th:action="@{/students/succ}" th:object="${enrollmentForm}" method="POST">
+            <input type="hidden" th:field="*{StudentID}" />
+            <input type="hidden" th:field="*{LName}" />
+            <input type="hidden" th:field="*{FName}" />
+            <input type="hidden" th:field="*{Course}" />
+            <input type="hidden" th:field="*{YrLvl}" />
+            <input type="hidden" th:field="*{Status}" />
+
+            <div class="form-group">
+                <div>
+                    <input type="number" th:field="*{downPayment}" min="500" placeholder="MIN. 500" id="downPayment"
+                           class="disabled-input" required>
+                    <label for="downPayment">DOWN PAYMENT</label>
+                </div>
+
+                <div>
+                    <input type="date"  th:field="*{schedule}" placeholder="SCHEDULE" id="schedule"
+                           class="disabled-input" required>
+                    <label for="schedule">SCHEDULE</label>
+                </div>
+
+                <script>
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('schedule').setAttribute('min', today);
+                </script>
+
+            </div>
+
+            <div class="schedule-instruction">
+                PLEASE VISIT CBAS CAMPUS AND BRING REQUIREMENTS IN YOUR SCHEDULE
+            </div>
+
+            <div class="button-group">
+                <button class="backBtn" type="button" onclick="window.history.back()">BACK</button>
+
+                <button class="nextBtn" type="submit">NEXT</button>
+            </div>
+        </form>
+    </div>
+</div>
+        <script src="script/seniorSched.js"></script>
+</body>
+
+</html>

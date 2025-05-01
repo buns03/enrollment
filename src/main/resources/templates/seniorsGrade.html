@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="/css/seniorsGrade.css">
+</head>
+<body>
+<header>
+    <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+    <nav>
+        <a href="#">About Us</a>
+    </nav>
+</header>
+
+<main>
+    <div class="form-header">STUDENT INFORMATION</div>
+    <div class="main-container">
+        <div class="progress-container">
+            <span class="progress-step"></span>
+            <span class="progress-step active"></span>
+            <span class="progress-step"></span>
+            <span class="progress-step"></span>
+        </div>
+        <p>Please fill out the necessary forms to complete your registration.</p>
+
+        <!-- Hidden input to preserve StudentID -->
+        <input type="hidden" th:name="StudentID" th:value="${StudentID}" />
+
+        <section class="form-container">
+            <div class="input-section">
+                <p><strong>FAILED SUBJECTS:</strong></p>
+                <div id="failed-subjects-list">
+                    <ul>
+                        <li th:each="sub : ${failedSubjects}" th:text="${sub}"></li>
+                        <li th:if="${#lists.isEmpty(failedSubjects)}">None</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p><strong>GWA:</strong> <span th:text="${gwa}">0.00</span></p>
+                </div>
+
+                <div>
+                    <p><strong>CURRENT STATUS:</strong>
+                        <span th:text="${status}"></span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="button-group">
+            <button class="backBtn" type="button" onclick="window.history.back()">BACK</button>
+            <form th:action="@{/students/enrollFor}" method="post">
+                <input type="hidden" name="StudentID" th:value="${StudentID}" />
+                <button class="nextBtn" type="submit">NEXT</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

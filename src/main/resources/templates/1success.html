@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="/css/1success.css">
+</head>
+
+<body>
+<div class="header">
+    <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+    <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="container">
+    <h1 class="success-title">APPLICATION SUCCESS!</h1>
+
+    <div class="main">
+        <p class="info-text">NOTE: SCREENSHOT THIS FORM AND SHOW IT TO CASHIER AND REGISTRAR.</p>
+    </div>
+
+    <p class="info-text">
+        BRING THE EXACT AMOUNT OF YOUR DOWN PAYMENT (<span th:text="${downPayment}"></span> + 200) FOR CAREER EXAM
+    </p>
+
+    <p class="info-text">DON’T FORGET TO BRING COMPLETE REQUIREMENTS.</p>
+
+    <p class="info-text">THANK YOU FOR CHOOSING LA CONCEPCION COLLEGE!</p>
+
+    <p class="info-text">HAVE A WONDERFUL JOURNEY!</p>
+
+    <p class="transaction">TRANSACTION NUMBER: <span th:text="${StudentID}"></span></p>
+</div>
+
+</form>
+</div>
+</div>
+</body>
+
+</html>

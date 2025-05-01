@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="/css/seniors.css">
+</head>
+
+<body>
+<header>
+    <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+    <nav>
+        <a href="#">About Us</a>
+    </nav>
+</header>
+<main>
+    <div class="form-header">STUDENT INFORMATION</div>
+    <div class="main-container">
+        <div class="progress-container">
+            <span class="progress-step active"></span>
+            <span class="progress-step"></span>
+            <span class="progress-step"></span>
+            <span class="progress-step"></span>
+        </div>
+        <p>Please fill out the necessary forms to complete your registration.</p>
+        <form th:action="@{/students/seniorsGrd}" th:object="${enrollmentForm}" method="post">
+            <section class="form-container">
+                <div class="input-section">
+                    <div>
+                        <input type="text" th:field="*{StudentID}" placeholder="SCHOOLID" required>
+                        <label>SCHOOLID</label>
+                    </div>
+                    <div>
+                        <input type="text" th:field="*{LName}" placeholder="LAST NAME" required>
+                        <label>LAST NAME</label>
+                    </div>
+                    <div>
+                        <input type="text" th:field="*{FName}" placeholder="FIRST NAME" required>
+                        <label>FIRST NAME</label>
+                    </div>
+                    <div>
+                        <select th:field="*{Course}">
+                            <option value="" disabled selected required>SELECT COURSE</option>
+                            <option value="BSIS">BACHELOR OF SCIENCE IN INFORMATION SYSTEMS (BSIS)</option>
+                            <option value="BSA">BACHELOR OF SCIENCE IN ACCOUNTANCY (BSA)</option>
+                            <option value="BSCRIM">BACHELOR OF SCIENCE IN CRIMINOLOGY (BSCRIM)</option>
+                            <option value="BSED">BACHELOR OF SECONDARY EDUCATION (BSED)</option>
+                            <option value="BEED">BACHELOR OF ELEMENTARY EDUCATION (BEED)</option>
+                            <option value="BSPSYCH">BACHELOR OF SCIENCE IN PSYCHOLOGY (BSPSYCH)</option>
+                            <option value="BSHM">BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT (BSHM)</option>
+                            <option value="BSAIS">BACHELOR OF SCIENCE IN ACCOUNTANCY INFORMATION SYSTEMS (BSAIS)
+                            </option>
+                            <option value="BSAIS">BACHELOR OF SCIENCE IN BUSINESS ADMINISTRATION (BSBA)</option>
+                            <option value="BSAIS">BACHELOR OF SCIENCE IN COMMNICATION ARTS (BSCA)</option>
+                            <option value="BSAIS">BACHELOR OF SCIENCE IN CIVIL ENGINEERING (BSCE)</option>
+                        </select>
+                        <label for="Course">COURSE</label>
+                    </div>
+                    <button type="submit" class="fetch">FETCH</button>
+                </div>
+            </section>
+        </form>
+    </div>
+</main>
+<!--<script src="JS/seniors.js"></script>-->
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    width: 90%; /* Sets the width of the main container */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add some padding around the form */
+    /* border: 2px solid #000; Border for the main container */
+    border-radius: 10px; /* Optional: rounded corners */
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+header {
+    background: linear-gradient(to right, #A2A8EC, #1C2480);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-header {
+    background: #d6d8fc;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 250px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 15px 0;
+    position: relative;
+}
+
+.progress-step {
+    width: 10px;
+    height: 10px;
+    background: #a3a5e0;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.progress-step.active {
+    background: #3a3d98;
+}
+
+.progress-bar button {
+    background-color: #87CEFA;
+    border: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-section {
+    /* background: #e0e0e0; */
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    align-self: center;
+}
+
+
+.disabled {
+    background-color: #D9D9D9;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.input-section input{
+    width: 90%; /* Input fields span full width of the column */
+    padding: 12px;
+    border: 1px solid #ccc;
+    background: #D9D9D9;
+    border-radius: 70px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.input-section label{
+    font-size: 12px; /* Enhance readability */
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Add space between label and input */
+    text-align: left; /* Align labels consistently to the left */
+    display: block; /* Labels stay directly above inputs */
+}
+
+.input-section > div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-section select {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background: #D9D9D9;
+    font-family: 'Josefin sans','sans serif';
+    border-radius: 70px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+    box-sizing: border-box;
+    display: block;
+}
+
+.fetch {
+    background-color: #3b3b98;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 30%;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.enroll {
+    background-color: #3b3b98;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 30%;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 40px;
+    align-self: center;
+}
+

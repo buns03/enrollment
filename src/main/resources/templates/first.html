@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="/css/first.css">
+</head>
+<body>
+<div class="header">
+    <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+    <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="form-container">
+    <div class="form-header">ENROLLING FOR</div>
+    <div class="main-container">
+
+        <p class="instructions">Please fill out the necessary forms to complete your registration.</p>
+
+        <form th:action="@{/students/yearController}" th:object="${enrollmentForm}" method="POST">
+
+            <div class="form-group">
+                <div>
+                    <select th:field="*{YrLvl}">
+                        <option value="" disabled selected required>Select Year Level</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                    </select>
+                    <label for="YrLvl">Year Level</label>
+                </div>
+            </div>
+            <button type="submit" id="nextBtn">NEXT</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Form</title>
+  <link rel="stylesheet" href="/css/documents.css">
+</head>
+
+<body>
+<div class="header">
+  <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+  <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="form-container">
+  <div class="form-header">DOCUMENTS</div>
+  <div class="main-container">
+    <div class="progress-container">
+      <span class="progress-step"></span>
+      <span class="progress-step"></span>
+      <span class="progress-step"></span>
+      <span class="progress-step active"></span>
+    </div>
+    <div class="instructions">
+      Please fill out the necessary forms to complete your registration.
+    </div>
+
+    <form th:action="@{/students/addFreshmen}" th:object="${enrollmentForm}" method="POST">
+      <input type="hidden" th:field="*{LName}">-->
+            <input type="hidden" th:field="*{FName}">
+            <input type="hidden" th:field="*{MName}">
+            <input type="hidden" th:field="*{Suffix}">
+            <input type="hidden" th:field="*{age}">
+            <input type="hidden" th:field="*{sex}">
+            <input type="hidden" th:field="*{dob}">
+            <input type="hidden" th:field="*{Course}">
+            <input type="hidden" th:field="*{Email}">
+            <input type="hidden" th:field="*{mnumber}">
+            <input type="hidden" th:field="*{Nationality}">
+            <input type="hidden" th:field="*{mother}">
+            <input type="hidden" th:field="*{monum}">
+            <input type="hidden" th:field="*{mooccu}">
+            <input type="hidden" th:field="*{moaddress}">
+            <input type="hidden" th:field="*{moemail}">
+            <input type="hidden" th:field="*{father}">
+            <input type="hidden" th:field="*{fnum}">
+            <input type="hidden" th:field="*{foccu}">
+            <input type="hidden" th:field="*{faddress}">
+            <input type="hidden" th:field="*{femail}">
+            <input type="hidden" th:field="*{guardian}">
+            <input type="hidden" th:field="*{gnum}">
+            <input type="hidden" th:field="*{gaddress}">
+            <input type="hidden" th:field="*{gemail}">
+            <input type="hidden" th:field="*{SchoolName}">
+            <input type="hidden" th:field="*{Strand}">
+            <input type="hidden" th:field="*{Average}">
+            <input type="hidden" th:field="*{DateGraduate}">
+            <input type="hidden" th:field="*{Achievements}">
+
+
+          <div class="form-group">
+              <div>
+                  <input type="number" th:field="*{downPayment}" min="500" placeholder="MIN. 500" id="downPayment"
+                         class="disabled-input" required>
+                  <label for="downPayment">DOWN PAYMENT</label>
+              </div>
+
+            <div>
+              <input type="date" th:field="*{Schedule}" placeholder="SCHEDULE" id="schedule"
+                     class="disabled-input" required>
+              <label for="schedule">SCHEDULE</label>
+            </div>
+
+            <script>
+              const today = new Date().toISOString().split('T')[0];
+              document.getElementById('schedule').setAttribute('min', today);
+            </script>
+
+          </div>
+
+          <div class="requirements-section">
+            <div class="requirements-title">REQUIREMENTS TO BRING:</div>
+            <ul>
+              <li>Original High School SF 9 / Form 138 (Report Card)</li>
+              <li>Original High School SF 10 / Form 137 (Permanent Record)</li>
+              <li>Original Certificate of Good Moral Character</li>
+              <li>Photocopy of PSA / NSO issued Birth Certificate</li>
+              <li>Career Examination</li>
+              <li>Latest 2x2 picture in white background (with name) Last, Given, Initial</li>
+            </ul>
+          </div>
+
+          <div class="schedule-instruction">
+            PLEASE VISIT CBAS CAMPUS AND BRING REQUIREMENTS IN YOUR SCHEDULE
+          </div>
+
+          <div class="button-group">
+              <a href="javascript:history.back()" class="backBtn">BACK</a>
+            <button id="nextBtn">NEXT</button>
+          </div>
+
+          </form>
+        </div>
+      </div>
+      </body>
+
+      </html>

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  body, html {
+    height: 100%;
+  }
+
+  body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Background image with 20% opacity */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/lcc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.3; /* Only background is affected */
+    z-index: -1;
+      will-change: opacity, transform; /* Hint the browser to prepare */
+      backface-visibility: hidden;     /* Prevent flashing */
+      transform: translateZ(0); 
+  }
+
+  .login-container {
+    opacity: 0;
+    transform: translateY(20px); /* Start with same as animation start */
+    animation: fadeInContainer 1s 0.3s forwards;
+    background-color: rgba(255, 255, 255, 0.8); /* Almost opaque white */
+    padding: 50px 40px; /* Increased padding */
+    border-radius: 16px; /* Slightly rounder */
+    width: 350px; /* Wider container */
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+
+  }
+
+  .login-container h2 {
+    color: #3213A0;
+    margin-bottom: 25px;
+    font-size: 30px;
+  }
+
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    width: 320px;
+    max-width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 20px;
+  }
+
+  .login-container button {
+    width: 320px;
+    max-width: 100%;
+    padding: 12px;
+    background-color: #3213A0;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .login-container a {
+    display: inline-block;
+    margin-top: 15px;
+    /* margin-right: 30px; */
+    font-size: 14px;
+    color: #3213A0;
+    text-decoration: none;
+  }
+
+  .login-container a:first-child {
+    margin-right: 50px; /* Increase distance between links */
+  }
+
+  .login-container a:hover {
+    text-decoration: underline;
+  }
+
+  .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(21, 0, 211, 0.8);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+    transition: background-color 0.2s ease;
+  }
+
+  .back-button:hover {
+    background-color: rgba(21, 0, 211, 1);
+  }
+
+
+  @keyframes fadeInContainer {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }

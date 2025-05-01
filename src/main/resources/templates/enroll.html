@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Concepcion College Enrollment</title>
+    <link rel="stylesheet" href="/css/enroll.css">
+</head>
+<body>
+<div class="header-title">LA CONCEPCION <br>COLLEGE</div>
+<div class="container">
+    <header>
+        <div class="logo">
+            <img src="/assets/logo.png" alt="La Concepcion College Logo"> <!-- Add your logo image -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://laconcepcioncollege.com/about-us/" target="_blank">About Us</a></li>
+                <li><a href="https://laconcepcioncollege.com/academics/" target="_blank">Offered Courses</a></li>
+                <li><a href="https://laconcepcioncollege.com/contact-us-2/" target="_blank">Contact Us</a></li>
+                <li><a th:href="@{/loginForm}">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main-content">
+        <h2>Ready to get started?</h2>
+        <p>Click below to begin your enrollment process.</p>
+        <button id="enroll-btn">ENROLL NOW</button>
+        <div class="why-enroll">
+            <h3>Why Enroll with Us?</h3>
+            <ul>
+                <li>Quality Education: Learn from expert instructors.</li>
+                <li>Flexible Programs: Choose the course that fits your schedule.</li>
+                <li>Supportive Community: Join a network of like-minded individuals.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div id="terms-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">TERMS AND CONDITIONS</div>
+        <div class="modal-body">
+            <p><strong>1. Introduction</strong><br>By submitting this Enrollment Form, you (the "Applicant" or "Student") agree to abide by the following Terms and Conditions set by La Concepcion College. These terms govern your enrollment process and participation in our programs or courses.</p>
+            <p><strong>2. Enrollment Process</strong><br>Eligibility: To enroll, you must meet the specific eligibility criteria for the program/course, which may include prerequisites or other requirements outlined on our website or in program brochures.
+                Enrollment Confirmation: After submitting this form, you will receive a confirmation email. Your enrollment is not complete until all necessary documentation and fees are processed.</p>
+            <p><strong>3. Fees and Payments</strong><br>Tuition and Fees: The Applicant agrees to pay all applicable fees for the program, including but not limited to tuition, registration, materials, and other administrative fees. A detailed breakdown of fees will be provided upon enrollment.
+                Payment Methods: Payments can be made via [accepted payment methods]. Full payment or an initial deposit may be required to secure your place in the program.
+                Refund Policy: Our refund policy is outlined separately on our website. Refunds are subject to the terms outlined, which may include deadlines for cancellation and the amount refundable.</p>
+            <p><strong>4. Personal Information:</strong><br> By enrolling, you consent to the collection and use of personal information as required for registration and participation in our program. Your personal data will be handled in accordance with our Privacy Policy, available on our website.
+                Data Security: We take the security of your personal information seriously and implement reasonable measures to protect it. However, we are not liable for any unauthorized access to your personal data.</p>
+            <p><strong>5. Code of Conduct</strong><br>Behavioral Expectations: By enrolling, you agree to uphold a standard of conduct consistent with the values of the institution. This includes respectful communication, attendance, and compliance with program rules and policies.
+                Academic Integrity: Plagiarism, cheating, or other forms of academic dishonesty will not be tolerated and may result in disciplinary actions, including dismissal from the program</p>
+            <p><strong>6. Program Changes:</strong><br> The institution reserves the right to modify or cancel programs, courses, or schedules due to unforeseen circumstances, such as insufficient enrollment or other operational reasons. We will notify you promptly of any such changes.
+                Force Majeure: In the event of unforeseen circumstances such as natural disasters, strikes, or other events beyond our control, we reserve the right to modify, delay, or cancel any program or course. We will do our best to provide alternate options for affected students.</p>
+            <p><strong>7. Liability</strong><br>Limitation of Liability: The institution is not responsible for any damages, losses, or injuries that may occur while attending classes or participating in any activities related to the program. Students are responsible for their own health and safety.
+                Indemnification: You agree to indemnify and hold harmless the institution, its staff, and affiliates from any claims, losses, or damages arising out of your participation in the program.</p>
+            <p><strong>8. Termination of Enrollment</strong><br>Voluntary Withdrawal: If you wish to withdraw from the program, you must notify us in writing according to the withdrawal policy. Any fees associated with withdrawal will be outlined on the website.
+                Termination by Institution: The institution reserves the right to terminate your enrollment if you fail to comply with the terms and conditions, fail to make required payments, or engage in inappropriate conduct.</p>
+            <p><strong>9. Governing Law:</strong><br> These Terms and Conditions shall be governed by and construed in accordance with the laws of Philippines.
+                Dispute Resolution: In the event of a dispute, we encourage you to contact us to resolve the matter amicably. If resolution cannot be reached, disputes will be resolved through [arbitration/mediation] in [your jurisdiction].</p>
+            <p><strong>10. Acceptance of Terms</strong><br>By clicking “Accept”, you acknowledge that you have read, understood, and agree to these Terms and Conditions.</p>
+        </div>
+        <div class="modal-buttons">
+            <button id="decline-btn">Close</button>
+            <button id="accept-btn">Accept</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/script/enroll.js"></script>
+</body>
+</html>

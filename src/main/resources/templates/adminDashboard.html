@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/adminDashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+<div class="sidebar">
+  <!-- Title bar instead of logo menu item -->
+  <div class="title-bar">
+    <div class="icon-container">
+      <div class="logo-icon custom">
+        <img src="/assets/letter-a.png" alt="Logo">
+      </div>
+    </div>
+    <span class="title-text">ADMIN</span>
+  </div>
+
+  <!-- Menu items -->
+  <div class="menu-item active" data-section="dashboard">
+    <div class="logo-icon custom">
+      <img src="/assets/dashboard.png" alt="Logo">
+    </div>
+    <span class="menu-text">DASHBOARD</span>
+  </div>
+  <div class="menu-item" data-section="applicants" th:class="'menu-item' + (activeSection == 'applicants' ? ' active' : '')">
+    <div class="logo-icon custom">
+      <img src="/assets/graduation.png" alt="Logo">
+    </div>
+    <span class="menu-text">APPLICANTS</span>
+  </div>
+  <div class="menu-item" data-section="grades">
+    <div class="logo-icon custom">
+      <img src="/assets/approved.png" alt="Logo">
+    </div>
+    <span class="menu-text">GRADES</span>
+  </div>
+  <div class="menu-item" data-section="schedule">
+    <div class="logo-icon custom">
+      <img src="/assets/schedule.png" alt="Logo">
+    </div>
+    <span class="menu-text">SCHEDULE</span>
+  </div>
+  <div class="menu-item" data-section="settings">
+    <div class="logo-icon custom">
+      <img src="/assets/settings.png" alt="Logo">
+    </div>
+    <span class="menu-text">SETTINGS</span>
+  </div>
+  <div class="menu-item logout">
+    <div class="logo-icon custom">
+      <img src="/assets/logout.png" alt="Logo">
+    </div>
+    <span class="menu-text">LOGOUT</span>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-section active" id="dashboard">
+    <h2>Dashboard</h2>
+    <div class="cards-container">
+      <div class="card-row">
+        <div class="card pending">
+          <h3>PENDING APPLICATIONS</h3>
+          <div class="number">0</div>
+          <div class="period">MONTH/DATE/YEAR</div>
+        </div>
+        <div class="card enrolled">
+          <h3>ENROLLED STUDENTS</h3>
+          <div class="number">0</div>
+          <div class="period">SY: 2025-2026</div>
+        </div>
+      </div>
+
+      <div class="enrollment-stats">
+        <h3>ENROLLMENT STATISTICS</h3>
+        <div class="graph-container">
+          <div class="graph">
+            <div class="bar-container">
+              <div class="y-axis">
+                <div class="y-label" style="height: 40px;">4000</div>
+                <div class="y-label" style="height: 40px;">3000</div>
+                <div class="y-label" style="height: 40px;">2000</div>
+                <div class="y-label" style="height: 40px;">1000</div>
+                <div class="y-label" style="height: 40px;">500</div>
+              </div>
+              <div class="bars">
+                <div class="bar-group">
+                  <div class="bar"></div>
+                  <div class="x-label">FIRST YEAR</div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar"></div>
+                  <div class="x-label">SECOND YEAR</div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar"></div>
+                  <div class="x-label">THIRD YEAR</div>
+                </div>
+                <div class="bar-group">
+                  <div class="bar"></div>
+                  <div class="x-label">FOURTH YEAR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" id="applicants" th:class="'content-section' + (activeSection == 'applicants' ? ' active' : '')">
+    <div class="applicants-container">
+      <h2>Manage Applicants</h2>
+      <form action="/admin/fetchApplicant" method="post" class ="fetch-form">
+        <div class="input-group">
+          <label for="schoolIdInput">School ID</label>
+          <input type="text" id="schoolIdInput" name="StudentID" placeholder="SCHOOL ID">
+          <button type="submit" class="fetch-btn">FETCH</button>
+        </div>
+      </form>
+        <div class="applicant-info-card">
+          <p><strong>STUDENT ID:</strong> <span id="info-school-id" th:text="${studentData != null ? studentData.StudentID : 'No Data'}">-</span></p>
+          <p><strong>FULL NAME:</strong> <span id="info-full-name" th:text="${studentData != null ? studentData.LName + ', ' + studentData.FName : 'No student data available'}">-</span></p>
+          <p><strong>COURSE:</strong> <span id="info-course" th:text="${studentData != null ? studentData.Course : 'No Data'}">-</span></p>
+          <p><strong>YEAR LEVEL:</strong> <span id="info-year" th:text="${studentData != null ? studentData.YrLvl : 'No Data'}">-</span></p>
+<!--          <p><strong>GWA:</strong> <span id="info-gwa" th:text="${studentData != null ? studentData.gwa : 'No Data'}">-</span></p>-->
+          <p><strong>STATUS:</strong> <span id="info-status" th:text="${studentData != null ? studentData.Status : 'No Data'}">-</span></p>
+          <p><strong>DOWN PAYMENT:</strong> <span id="info-payment" th:text="${studentData != null ? studentData.downPayment : 'No Data'}">-</span></p>
+          <div class="approve-btn-container" th:if="${studentData != null}">
+            <form action="/admin/approveApplicant" method="post">
+              <input type="hidden" name="StudentID" th:value="${studentData != null ? studentData.StudentID : ''}">
+              <input type="hidden" name="LName" th:value="${studentData.LName}">
+              <input type="hidden" name="FName" th:value="${studentData.FName}">
+              <input type="hidden" name="YrLvl" th:value="${studentData.YrLvl}">
+              <input type="hidden" name="Course" th:value="${studentData.Course}">
+              <input type="hidden" name="Status" th:value="${studentData.Status}">
+              <button type="submit" class="approve-btn">APPROVE</button>
+            </form>
+<!--            <button type="submit" class="approve-btn">APPROVE</button>-->
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+    <div class="content-section" id="grades">
+        <h2>Grades Section</h2>
+
+        <!-- Dropdown and Button (no functionality yet) -->
+        <div class="grades-controls">
+            <select class="dropdown" id="sectionDropdown">
+                <option disabled selected>Select Section</option>
+                <option value="A">Section A</option>
+                <option value="B">Section B</option>
+            </select>
+            <select class="dropdown" id="subjectDropdown">
+                <option disabled selected>Select Subject</option>
+                <option value="math">Mathematics</option>
+                <option value="science">Science</option>
+            </select>
+            <button class="fetch-btn">FILTER</button>
+        </div>
+
+        <!-- Table to display all students with their subjects and grades -->
+        <div class="grades-table-container">
+          <form action="/admin/updateGrades" method="POST">
+            <table class="grades-table">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Student Name</th>
+                <th>Section</th>
+                <th>Subject</th>
+                <th>Grade</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- Loop through students and render each row -->
+              <tr th:each="student : ${students}">
+                <td th:text="${student.studentNo}"></td>
+                <td th:text="${student.fName + ' ' + student.lName}"></td>
+                <td th:text="${student.section}"></td>
+                <td th:text="${student.subject}"></td>
+
+                <td>
+                  <input type="number" th:name="'grades[' + ${student.studentNo} + '][' + ${student.subject} + ']'"
+                         th:value="${student.grade}" step="0.1" min="0" max="100" />
+                </td>
+              </tr>
+
+              <tr th:if="${#lists.isEmpty(students)}">
+                <td colspan="6">No students to display</td>
+              </tr>
+              </tbody>
+            </table>
+
+            <!-- Save Button below the table (but still inside the form) -->
+            <div class="form-actions">
+              <button type="submit" class="save-btn">Save Changes</button>
+            </div>
+          </form>
+        </div>
+    </div>
+
+<!--    <script>-->
+<!--      async function fetchStudents(section, subject) {-->
+<!--    try {-->
+<!--      const response = await fetch(`/admin/studentsrecords?section=${section}&subject=${subject}`);-->
+<!--      const students = await response.json();-->
+
+<!--      // Clear existing table rows-->
+<!--      tbody.innerHTML = '';-->
+
+<!--      // Add rows for each student-->
+<!--      students.forEach((student, index) => {-->
+<!--        const row = document.createElement('tr');-->
+<!--        row.innerHTML = `-->
+<!--          <td>${index + 1}</td>-->
+<!--          <td>${student.fName} ${student.lName}</td>-->
+<!--          <td>${student.section}</td>-->
+<!--          <td>${student.subject}</td>-->
+<!--          <td contenteditable="true">${student.grade || '&#45;&#45;'}</td>-->
+<!--        `;-->
+<!--        tbody.appendChild(row);-->
+<!--      });-->
+<!--    } catch (error) {-->
+<!--      console.error('Error fetching student data:', error);-->
+<!--    }-->
+<!--  }-->
+<!--  </script>-->
+
+
+
+  <div class="content-section" id="schedule">
+    <h2>Schedule Section</h2>
+    <div class="subjects-controls">
+      <select class="dropdown" id="sectionSelect">
+        <option disabled selected>SECTION</option>
+        <option value="A">Section A</option>
+        <option value="B">Section B</option>
+      </select>
+      <button class="fetch-button">FETCH</button>
+    </div>
+
+    <div class="subjects-editor">
+      <div class="labels">
+        <span class="label">Subjects</span>
+        <span class="label">Date</span>
+        <span class="label">Time</span>
+      </div>
+
+      <div class="grid-inputs" id="gridInputs">
+        <!-- Grid of inputs will be generated by JS -->
+      </div>
+
+      <div class="grid-controls">
+        <button onclick="addRow()">Add Row</button>
+      </div>
+
+      <button class="save-button">SAVE</button>
+    </div>
+
+  </div>
+
+  <div class="content-section" id="settings">
+    <h2 class="section-title">Settings</h2>
+    <div class="form-wrapper">
+      <div class="add-admin-form">
+        <h3>Add Administrator Personnel</h3>
+
+        <label for="email">Email/Username</label>
+        <input type="text" id="email" placeholder="Enter email or username">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <label for="role">Role</label>
+        <select id="role" name="role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+
+        <button type="submit">Add Admin</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="tooltip" class="tooltip"></div>
+<script src="/script/adminDashboard.js"></script>
+</body>
+
+</html>

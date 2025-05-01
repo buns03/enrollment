@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Form</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+<div class="header">
+  <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+  <a href="https://laconcepcioncollege.com/" target="_blank" class="about-link">About Us</a>
+</div>
+
+<div class="form-container">
+  <div class="form-header">STUDENT INFORMATION</div>
+  <div class="main-container">
+    <div class="progress-container">
+      <span class="progress-step active"></span>
+      <span class="progress-step"></span>
+      <span class="progress-step"></span>
+      <span class="progress-step"></span>
+    </div>
+
+    <p class="instructions">Please fill out the necessary forms to complete your registration.</p>
+
+    <!-- Begin form with Thymeleaf -->
+    <form th:action="@{/students/parent}" th:object="${enrollmentForm}" method="POST">
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{LName}" placeholder="LAST NAME" id="LName" required>
+          <label>Last Name</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{FName}" placeholder="GIVEN NAME" required>
+          <label>Given Name</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{MName}" placeholder="MIDDLE NAME">
+          <label>Middle Name</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{Suffix}" placeholder="SUFFIX">
+          <label>Suffix</label>
+        </div>
+        <div>
+          <input type="number" th:field="*{age}" placeholder="AGE" required>
+          <label>Age</label>
+        </div>
+        <div class="sex-options">
+          <div class="radio-buttons" required>
+            <input type="radio" th:field="*{sex}" value="Male" id="male">
+            <label for="male">Male</label>
+            <input type="radio" th:field="*{sex}" value="Female" id="female">
+            <label for="female">Female</label>
+          </div>
+          <label for="sex">Sex</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <input type="date" th:field="*{dob}" required />
+          <label for="dobStr">Date of Birth</label>
+        </div>
+        <div>
+          <select th:field="*{Course}" required>
+            <option value="" disabled selected>Select Course</option>
+            <option value="BSIS">Bachelor of Science Information Systems (BSIS)</option>
+            <option value="BSA">Bachelor of Science in Accountancy (BSA)</option>
+            <option value="BSCRIM">Bachelor of Science in Criminology (BSCRIM)</option>
+            <option value="BSED">Bachelor of Secondary Education (BSED)</option>
+            <option value="BEED">Bachelor of Elementary Education (BEED)</option>
+            <option value="BSPSYCH">Bachelor of Science in Psychology (BSPSYCH)</option>
+            <option value="BSHM">Bachelor of Science in Hospitality Management (BSHM)</option>
+            <option value="BSAIS">Bachelor of Science in Accountancy Information Systems (BSAIS)
+            </option>
+          </select>
+          <label for="Course">Course</label>
+        </div>
+        <div>
+          <input type="email" th:field="*{Email}" placeholder="EMAIL ADDRESS" required>
+          <label>Email Address</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <input type="text" th:field="*{mnumber}" placeholder="MOBILE NUMBER" required>
+          <label>Mobile Number</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{Nationality}" placeholder="NATIONALITY" required>
+          <label>Nationality</label>
+        </div>
+        <div>
+          <input type="text" th:field="*{Address}" placeholder="HOME ADDRESS" required>
+          <label>Home Address</label>
+        </div>
+      </div>
+        <div class="button-group">
+          <a href="javascript:history.back()" class="backBtn">BACK</a>
+          <button type="submit" id="nextBtn">NEXT</button>
+        </div>
+  </form>
+</div>
+</div>
+</body>
+
+</html>

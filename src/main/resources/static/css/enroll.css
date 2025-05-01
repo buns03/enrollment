@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: url('/assets/lcc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 0;
+}
+
+.header-title {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    font-size: 40px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    color: black; /* Ensure visibility */
+    z-index: 2;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 50px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logo img {
+    width: 900px;
+    position: absolute;
+    left: -200px;
+    top: 850%;
+    transform: translateY(-50%);
+}
+
+nav {
+    position: absolute;
+    right: 150px;
+    top: 50px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #FFEB3B;
+    text-decoration: underline;
+}
+
+.main-content {
+    text-align: left;
+    margin-top: 100px;
+    position: absolute;
+    right: 150px;
+    width: 40%;
+    z-index: 1;
+    color: black;
+}
+
+.main-content h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#enroll-btn {
+    background-color: blue;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#enroll-btn:hover{
+    background: #2a2c7a
+}
+
+.why-enroll {
+    margin-top: 30px;
+    text-align: left;
+    padding: 0 2px;
+}
+
+.why-enroll h3 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.why-enroll p {
+    font-size: 18px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000; /* Ensures the modal is above everything */
+    overflow-y: auto; /* Allows scrolling for the modal */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh; /* Ensures it doesn't go off-screen */
+    overflow-y: auto; /* Allows content scrolling */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-header {
+    background: #1640CB;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-body {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+/* Styling for Accept & Close buttons */
+.modal-buttons button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
+#decline-btn {
+    background: red;
+    color: white;
+}
+
+#accept-btn {
+    background: #1640CB;
+    color: white;
+}

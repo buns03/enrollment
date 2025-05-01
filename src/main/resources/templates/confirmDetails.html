@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="/css/confirmDetails.css">
+</head>
+
+<body>
+<header>
+    <h1 class="header-title">LCC ENROLLMENT FORM</h1>
+    <nav>
+        <a href="#">About Us</a>
+    </nav>
+</header>
+<main>
+    <div class="form-header">STUDENT INFORMATION</div>
+    <div class="main-container">
+        <div class="progress-container">
+            <span class="progress-step"></span>
+            <span class="progress-step"></span>
+            <span class="progress-step active"></span>
+            <span class="progress-step"></span>
+        </div>
+        <p>Please fill out the necessary forms to complete your registration.</p>
+<!--        <form th:action="@{/enrollmentForms/sched}" th:object="${enrollmentForm}" method="post">-->
+            <input type="hidden" th:name="StudentID" th:value="${enrollmentForm.StudentID}" />
+            <section class="form-container">
+                <div class = "info-box">
+                    <h3>TO BE ENROLLED TO</h3>
+                    <p><strong>STUDENTID:</strong> <span th:text="${enrollmentForm.StudentID}"></span></p>
+                    <p><strong>FULL NAME:</strong>  <span th:text="${enrollmentForm.LName} + ' ' + ${enrollmentForm.FName}"></span></p>
+                    <p><strong>COURSE:</strong> <span th:text="${enrollmentForm.Course}"></span></p>
+                    <p><strong>YEAR LEVEL:</strong> <span th:text="${enrollmentForm.YrLvl}"></span></p>
+                    <p><strong>STATUS:</strong> <span th:text="${enrollmentForm.Status}"></span></p>
+                </div>
+
+
+                <!-- Navigation Buttons -->
+                <div class="button-container">
+                    <button class="back-btn" onclick="goBack()">BACK</button>
+
+                    <form th:action="@{/students/sched}" method="post">
+<!--                        <input type="hidden" th:name="enrollmentFormId" th:value="${enrollmentForm.enrollmentFormId}" />-->
+                        <button type="submit" class="fetch">NEXT</button>
+                    </form>
+                </div>
+            </section>
+        </form>
+    </div>
+</main>
+<script src="/script/confirmDetails.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    width: 90%; /* Sets the width of the main container */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add some padding around the form */
+    /* border: 2px solid #000; Border for the main container */
+    border-radius: 10px; /* Optional: rounded corners */
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+.about-link:hover {
+    color: #FFEB3B; /* Change color to a yellowish tone */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow to text */
+    text-decoration: underline;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(to right, #A2A8EC, #1C2480);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Form Container */
+.container {
+    width: 85%;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Form Header */
+.form-header {
+    background: #d6d8fc;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 250px;
+    text-align: center;
+}
+
+/* Progress Bar */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 15px 0;
+    position: relative;
+}
+
+.progress-step {
+    width: 10px;
+    height: 10px;
+    background: #a3a5e0;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.progress-step.active {
+    background: #3a3d98;
+}
+
+.instructions {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+
+/* Form Group: 3 Structured Columns */
+.form-group {
+    display: grid; /* Enable grid for precise alignment */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    /* gap: 100px 50px; Space between columns and rows */
+    column-gap: 50px;
+    row-gap: 50px;
+    /* justify-items: center; */
+}
+
+/* Input Fields */
+.form-group input {
+   width: 90%; /* Input fields span full width of the column */
+       padding: 12px;
+       border: 1px solid #ccc;
+       background: #e0e1f8;
+       border-radius: 70px;
+       text-align: center;
+       font-size: 14px;
+       color: #666;
+       font-weight: bold;
+       box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Labels Positioned Above Inputs */
+.form-group label {
+    font-size: 12px; /* Enhance readability */
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px; /* Add space between label and input */
+    text-align: left; /* Align labels consistently to the left */
+    display: block; /* Labels stay directly above inputs */
+}
+
+.form-group > div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.disabled-input {
+    color: #bbb;
+}
+
+/* Next Button */
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons evenly */
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.backBtn, #nextBtn {
+    background: #3a3d98;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+#nextBtn:hover {
+    background: #2a2c7a;
+}
+
+.backBtn {
+    text-decoration: none;
+    background: #555;
+}
+
+.backBtn:hover {
+    background: #444;
+}
